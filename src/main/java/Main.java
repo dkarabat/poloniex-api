@@ -12,40 +12,31 @@ public class Main {
     public static void main(String[] args) {
 
         PublicMethods publicMethods = new PublicMethods();
-        publicMethods.returnCurrencies(new TestsCallBack());
+        publicMethods.returnLoanOrders(new TestsCallBack(), "BTC");
 
 
 
     }
 
 
-    private static class TestsCallBack implements PoloniexCallBack<Map<String,CurrencyData>> {
+    private static class TestsCallBack implements PoloniexCallBack<LoanOrders> {
 
         @Override
-        public void success(Map<String, CurrencyData> response) {
+        public void success(LoanOrders response) {
             Gson gson = new Gson();
             String string = gson.toJson(response);
             Logger logger = Logger.getLogger("HI");
             logger.info(string);
 
             PublicMethods publicMethods = new PublicMethods();
-            publicMethods.returnCurrencies(new TestsCallBack());
+            publicMethods.returnLoanOrders(new TestsCallBack(), "BTC");
 
         }
 
         @Override
         public void fail(String error) {
-            error = error;
             System.out.println(error);
         }
-    }
-
-    private static class MyThread extends TimerTask{
-
-        public void run(){
-
-        }
-
     }
 
 }
