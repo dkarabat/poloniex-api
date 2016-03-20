@@ -1,7 +1,10 @@
 import com.exit490.poloniex.api.PublicMethods;
+import com.exit490.poloniex.domain.OrderBook;
 import com.exit490.poloniex.service.PoloniexCallBack;
 import com.exit490.poloniex.domain.Ticker;
 import com.google.gson.Gson;
+
+import java.math.BigDecimal;
 import java.util.Map;
 import java.util.TimerTask;
 import java.util.logging.Logger;
@@ -11,25 +14,24 @@ public class Main {
     public static void main(String[] args) {
 
         PublicMethods publicMethods = new PublicMethods();
-        publicMethods.returnTicker(new TikerCallBack());
+        publicMethods.returnOrderBook(new TikerCallBack(), "BTC_ETH", 50);
 
 
 
     }
 
 
-    private static class TikerCallBack implements PoloniexCallBack<Map<String,Ticker>> {
+    private static class TikerCallBack implements PoloniexCallBack<OrderBook> {
 
         @Override
-        public void success(Map<String, Ticker> response) {
+        public void success(OrderBook response) {
             Gson gson = new Gson();
-            Ticker ticker = response.get("BTC_ETH");
-            String string = gson.toJson(ticker);
+            String string = gson.toJson(response.getAsks());
             Logger logger = Logger.getLogger("HI");
             logger.info(string);
 
             PublicMethods publicMethods = new PublicMethods();
-            publicMethods.returnTicker(new TikerCallBack());
+            publicMethods.returnOrderBook(new TikerCallBack(), "BTC_ETH", 50);
 
         }
 

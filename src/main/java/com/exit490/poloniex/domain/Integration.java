@@ -4,6 +4,5 @@ public interface Integration {
 
     String HOST = "https://poloniex.com/";
     String URI_RETURN_TICKER = "public?command=returnTicker";
-
-
+    String URI_RETURN_ORDER_BOOK = "public?command=returnOrderBook";
 }
