@@ -1,77 +1,79 @@
 package com.exit490.poloniex.domain;
 
+import java.math.BigDecimal;
+
 public class Ticker {
 
-    private String last;
-    private String lowerAsk;
-    private String percentChange;
-    private String baseVolume;
-    private String quoteVolume;
-    private String isFrozen;
-    private String high24hr;
-    private String low24hr;
+    private BigDecimal last;
+    private BigDecimal lowerAsk;
+    private BigDecimal percentChange;
+    private BigDecimal baseVolume;
+    private BigDecimal quoteVolume;
+    private int isFrozen;
+    private BigDecimal high24hr;
+    private BigDecimal low24hr;
 
-    public String getLast() {
+    public BigDecimal getLast() {
         return last;
     }
 
-    public void setLast(String last) {
+    public void setLast(BigDecimal last) {
         this.last = last;
     }
 
-    public String getLowerAsk() {
+    public BigDecimal getLowerAsk() {
         return lowerAsk;
     }
 
-    public void setLowerAsk(String lowerAsk) {
+    public void setLowerAsk(BigDecimal lowerAsk) {
         this.lowerAsk = lowerAsk;
     }
 
-    public String getPercentChange() {
+    public BigDecimal getPercentChange() {
         return percentChange;
     }
 
-    public void setPercentChange(String percentChange) {
+    public void setPercentChange(BigDecimal percentChange) {
         this.percentChange = percentChange;
     }
 
-    public String getBaseVolume() {
+    public BigDecimal getBaseVolume() {
         return baseVolume;
     }
 
-    public void setBaseVolume(String baseVolume) {
+    public void setBaseVolume(BigDecimal baseVolume) {
         this.baseVolume = baseVolume;
     }
 
-    public String getQuoteVolume() {
+    public BigDecimal getQuoteVolume() {
         return quoteVolume;
     }
 
-    public void setQuoteVolume(String quoteVolume) {
+    public void setQuoteVolume(BigDecimal quoteVolume) {
         this.quoteVolume = quoteVolume;
     }
 
-    public String getIsFrozen() {
+    public int getIsFrozen() {
         return isFrozen;
     }
 
-    public void setIsFrozen(String isFrozen) {
+    public void setIsFrozen(int isFrozen) {
         this.isFrozen = isFrozen;
     }
 
-    public String getHigh24hr() {
+    public BigDecimal getHigh24hr() {
         return high24hr;
     }
 
-    public void setHigh24hr(String high24hr) {
+    public void setHigh24hr(BigDecimal high24hr) {
         this.high24hr = high24hr;
     }
 
-    public String getLow24hr() {
+    public BigDecimal getLow24hr() {
         return low24hr;
     }
 
-    public void setLow24hr(String low24hr) {
+    public void setLow24hr(BigDecimal low24hr) {
         this.low24hr = low24hr;
     }
 }
