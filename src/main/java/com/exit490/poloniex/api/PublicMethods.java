@@ -50,6 +50,13 @@ public class PublicMethods {
         orderBookCall.enqueue(poloniexServiceRequest.getCallback());
     }
 
+    public void returnChartData(PoloniexCallBack<List<ChartData>> poloniexCallBack, String currencyPair, String start, String end, String period) {
+        PoloniexServiceRequest<List<ChartData>> poloniexServiceRequest = new PoloniexServiceRequest(poloniexCallBack);
+        Methods methods = poloniexServiceRequest.getConfiguration().create(Methods.class);
+        Call<List<ChartData>> orderBookCall = methods.returnChartData(currencyPair, start, end, period);
+        orderBookCall.enqueue(poloniexServiceRequest.getCallback());
+    }
+
     private interface Methods {
 
         @GET(Integration.URI_RETURN_TICKER)
@@ -66,6 +73,9 @@ public class PublicMethods {
 
         @GET(Integration.URI_RETURN_TRADE_HISTORY)
         Call<List<TradeHistory>> returnTradeHistory(@Query("currencyPair") String currencyPair, @Query("start") String start, @Query("end") String end);
+
+        @GET(Integration.URI_RETURN_CHART)
+        Call<List<ChartData>> returnChartData(@Query("currencyPair") String currencyPair, @Query("start") String start, @Query("end") String end, @Query("period") String period);
 
     }
 
