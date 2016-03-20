@@ -14,24 +14,24 @@ public class Main {
     public static void main(String[] args) {
 
         PublicMethods publicMethods = new PublicMethods();
-        publicMethods.returnOrderBook(new TikerCallBack(), "BTC_ETH", 50);
+        publicMethods.returnAllOrderBook(new TikerCallBack(), 2);
 
 
 
     }
 
 
-    private static class TikerCallBack implements PoloniexCallBack<OrderBook> {
+    private static class TikerCallBack implements PoloniexCallBack<Map<String, OrderBook>> {
 
         @Override
-        public void success(OrderBook response) {
+        public void success(Map<String, OrderBook> response) {
             Gson gson = new Gson();
-            String string = gson.toJson(response.getAsks());
+            String string = gson.toJson(response);
             Logger logger = Logger.getLogger("HI");
             logger.info(string);
 
             PublicMethods publicMethods = new PublicMethods();
-            publicMethods.returnOrderBook(new TikerCallBack(), "BTC_ETH", 50);
+            publicMethods.returnAllOrderBook(new TikerCallBack(), 2);
 
         }
 

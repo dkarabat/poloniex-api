@@ -13,10 +13,17 @@ import java.util.Map;
 
 public class PublicMethods {
 
-    public void returnOrderBook(PoloniexCallBack<OrderBook> poloniexCallBack, String currencyPair, int depth){
+    public void returnOrderBook(PoloniexCallBack<OrderBook> poloniexCallBack, String currencyPair, int depth) {
         PoloniexServiceRequest<OrderBook> poloniexServiceRequest = new PoloniexServiceRequest(poloniexCallBack);
         Methods methods = poloniexServiceRequest.getConfiguration().create(Methods.class);
-        Call<OrderBook> orderBookCall = methods.returnOrderBook(currencyPair,depth);
+        Call<OrderBook> orderBookCall = methods.returnOrderBook(currencyPair, depth);
+        orderBookCall.enqueue(poloniexServiceRequest.getCallback());
+    }
+
+    public void returnAllOrderBook(PoloniexCallBack<Map<String, OrderBook>> poloniexCallBack, int depth) {
+        PoloniexServiceRequest<Map<String, OrderBook>> poloniexServiceRequest = new PoloniexServiceRequest(poloniexCallBack);
+        Methods methods = poloniexServiceRequest.getConfiguration().create(Methods.class);
+        Call<Map<String, OrderBook>> orderBookCall = methods.returnAllOrderBook("ALL", depth);
         orderBookCall.enqueue(poloniexServiceRequest.getCallback());
     }
 
@@ -33,7 +40,10 @@ public class PublicMethods {
         Call<Map<String, Ticker>> returnTicker();
 
         @GET(Integration.URI_RETURN_ORDER_BOOK)
-        Call<OrderBook> returnOrderBook(@Query("currencyPair") String currencyPair,@Query("depth") int depth);
+        Call<OrderBook> returnOrderBook(@Query("currencyPair") String currencyPair, @Query("depth") int depth);
+
+        @GET(Integration.URI_RETURN_ORDER_BOOK)
+        Call<Map<String, OrderBook>> returnAllOrderBook(@Query("currencyPair") String currencyPair, @Query("depth") int depth);
 
     }
 
