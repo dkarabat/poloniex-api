@@ -1,5 +1,5 @@
-import com.exit490.poloniex.domain.MethodsPublic;
-import com.exit490.poloniex.domain.ResponseCallBack;
+import com.exit490.poloniex.domain.PublicMethods;
+import com.exit490.poloniex.domain.PoloniexCallBack;
 import com.exit490.poloniex.domain.Ticker;
 import com.google.gson.Gson;
 import java.util.Map;
@@ -10,15 +10,15 @@ public class Main {
 
     public static void main(String[] args) {
 
-        MethodsPublic methodsPublic = new MethodsPublic();
-        methodsPublic.returnTicker(new TikerCallBack());
+        PublicMethods publicMethods = new PublicMethods();
+        publicMethods.returnTicker(new TikerCallBack());
 
 
 
     }
 
 
-    private static class TikerCallBack implements ResponseCallBack<Map<String,Ticker>>{
+    private static class TikerCallBack implements PoloniexCallBack<Map<String,Ticker>> {
 
         @Override
         public void success(Map<String, Ticker> response) {
@@ -28,8 +28,8 @@ public class Main {
             Logger logger = Logger.getLogger("HI");
             logger.info(string);
 
-            MethodsPublic methodsPublic = new MethodsPublic();
-            methodsPublic.returnTicker(new TikerCallBack());
+            PublicMethods publicMethods = new PublicMethods();
+            publicMethods.returnTicker(new TikerCallBack());
 
         }
 

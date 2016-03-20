@@ -1,6 +1,6 @@
 package com.exit490.poloniex.domain;
 
-public interface ResponseCallBack<T> {
+public interface PoloniexCallBack<T> {
 
     void success(T response);
 
