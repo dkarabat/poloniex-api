@@ -8,5 +8,6 @@ public interface Integration {
     String URI_RETURN_ORDER_BOOK = "public?command=returnOrderBook";
     String URI_RETURN_TRADE_HISTORY = "public?command=returnTradeHistory";
     String URI_RETURN_CHART = "public?command=returnChartData";
+    String URI_RETURN_CURRENCIES = "public?command=returnCurrencies";
 
 }
