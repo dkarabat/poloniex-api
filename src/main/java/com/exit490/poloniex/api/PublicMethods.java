@@ -1,5 +1,9 @@
-package com.exit490.poloniex.domain;
+package com.exit490.poloniex.api;
 
+import com.exit490.poloniex.service.PoloniexCallBack;
+import com.exit490.poloniex.service.PoloniexServiceRequest;
+import com.exit490.poloniex.domain.Integration;
+import com.exit490.poloniex.domain.Ticker;
 import retrofit2.Call;
 import retrofit2.http.GET;
 
@@ -18,7 +22,7 @@ public class PublicMethods {
 
     private interface Methods {
 
-        @GET(Integration.URI_RETUR_TICKER)
+        @GET(Integration.URI_RETURN_TICKER)
         Call<Map<String, Ticker>> returnTicker();
 
     }

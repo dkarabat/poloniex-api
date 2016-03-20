@@ -1,5 +1,5 @@
-import com.exit490.poloniex.domain.PublicMethods;
-import com.exit490.poloniex.domain.PoloniexCallBack;
+import com.exit490.poloniex.api.PublicMethods;
+import com.exit490.poloniex.service.PoloniexCallBack;
 import com.exit490.poloniex.domain.Ticker;
 import com.google.gson.Gson;
 import java.util.Map;

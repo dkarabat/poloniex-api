@@ -1,5 +1,6 @@
-package com.exit490.poloniex.domain;
+package com.exit490.poloniex.service;
 
+import com.exit490.poloniex.domain.Integration;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

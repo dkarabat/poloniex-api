@@ -1,4 +1,4 @@
-package com.exit490.poloniex.domain;
+package com.exit490.poloniex.service;
 
 public interface PoloniexCallBack<T> {
 
